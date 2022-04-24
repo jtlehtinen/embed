@@ -1,6 +1,6 @@
 # embed
 
-Small utility to create uint8_t array definition from a file.
+Small utility to embed a file contents into a  uint8_t array.
 
 ## Example
 
