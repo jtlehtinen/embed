@@ -24,7 +24,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestRun(t *testing.T) {
-	args := []string{"test", "-in", "test_in.txt", "-var", "file"}
+	args := []string{"test", "-var", "file", "test_in.txt"}
 	stdout := bytes.Buffer{}
 
 	err := run(args, &stdout, os.Stderr)

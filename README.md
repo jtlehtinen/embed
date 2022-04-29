@@ -13,15 +13,14 @@ hello world
 then running:
 
 ```shell
-$ embed -in hello.txt -var file
+$ embed -var bytes hello.txt
 ```
 
 prints to stdout the following:
 
 ```c++
-const uint8_t file[] = {
+const uint8_t bytes[] = {
   0x68,0x65,0x6c,0x6c,0x6f,0x20,0x77,0x6f,
   0x72,0x6c,0x64,
 };
-
 ```

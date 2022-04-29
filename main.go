@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 const indent = "  "
@@ -40,18 +41,19 @@ func run(args []string, stdout io.Writer, stderr io.Writer) error {
 		flags.PrintDefaults()
 	}
 
-	varname := flags.String("var", "Font", "name of the font data variable")
-	inFilename := flags.String("in", "", "file to embed")
+	varname := flags.String("var", "data", "name of the font data variable")
 	if err := flags.Parse(args[1:]); err != nil {
 		return err
 	}
 
-	if *inFilename == "" {
+	inFilename := strings.Join(flags.Args(), " ")
+
+	if inFilename == "" {
 		flags.Usage()
 		os.Exit(0)
 	}
 
-	bytes, err := os.ReadFile(*inFilename)
+	bytes, err := os.ReadFile(inFilename)
 	if err != nil {
 		return err
 	}
